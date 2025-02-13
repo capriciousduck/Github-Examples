@@ -28,10 +28,6 @@ jobs:
       - name: Format and echo string
         run: echo "${{ format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat') }}"
 
-      - name: Join issue labels
-        if: ${{ github.event_name == 'issues' }}
-        run: echo "Issue labels: ${{ join(github.event.issue.labels.*.name, ', ') }}"
-
       - name: Hash files
         run: echo "Hash of files: ${{ hashFiles('**/package-lock.json', '**/Gemfile.lock') }}"
 
