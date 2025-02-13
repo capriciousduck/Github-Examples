@@ -1,0 +1,15 @@
+name: webhook
+
+on:
+  repository_dispatch:
+    - type: webhook
+
+jobs:
+  webhook_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check CPU
+        run: lscpu
+      - name: what is event name?
+        run: 'echo "Event name: $GITHUB_EVENT_NAME"'
+    
