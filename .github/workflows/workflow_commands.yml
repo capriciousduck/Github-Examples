@@ -15,8 +15,9 @@ jobs:
       
       - name: Appending new ENVs
         run: |
-          echo "birthday='April 13th 1997'" >> $GITHUB_ENV
+          echo "birthday=April 13th 1997" >> $GITHUB_ENV
           echo "presentage=27" >> $GITHUB_ENV
+
       - name: lscpu output
         id: lscpu
         run: |
@@ -25,8 +26,7 @@ jobs:
         
       - name: Cat out values
         run: |
-          cat ${{ env.birthday }}
-          cat ${{ env.presentage }}
-          cat ${{ steps.lscpu.outputs.lscpu_output }}
-
-    
+          echo "Birthday: ${{ env.birthday }}"
+          echo "Present age: ${{ env.presentage }}"
+          echo "lscpu output:"
+          echo "${{ steps.lscpu.outputs.lscpu_output }}"
