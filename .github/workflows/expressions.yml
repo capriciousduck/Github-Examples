@@ -29,7 +29,7 @@ jobs:
         run: echo "${{ format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat') }}"
 
       - name: Hash files
-        run: echo "Hash of files: ${{ hashFiles('**/package-lock.json', '**/Gemfile.lock') }}"
+        run: "echo 'Hash of files: ${{ hashFiles('**/package-lock.json', '**/Gemfile.lock') }}'"
 
       - name: The job has succeeded
         if: ${{ success() }}
