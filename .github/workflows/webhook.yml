@@ -2,7 +2,7 @@ name: webhook
 
 on:
   repository_dispatch:
-    - type: webhook
+    types: webhook
 
 jobs:
   webhook_deploy:
