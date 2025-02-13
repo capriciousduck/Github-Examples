@@ -1,0 +1,30 @@
+name: Workflow Commands
+
+on: ['push']
+
+jobs:
+  commands-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Message Groupie
+        run: |
+          echo "::group::My Group"
+          echo "Message 1: Today is 13th"
+          echo "Message 2: Today is Thursday"
+          echo "::endgroup::"
+      
+      - name: Appending new ENVs
+        run: |
+          echo "birthday='April 13th 1997'" >> $GITHUB_ENV
+          echo "presentage=27" >> $GITHUB_ENV
+      - name: lscpu output
+        id: lscpu
+        run: lscpu > $GITHUB_OUTPUT
+        
+      - name: Cat out values
+        run: |
+          cat $birthday
+          cat $presentage
+          cat ${{ steps.lscpu.outputs.stdout }}
+
+    
