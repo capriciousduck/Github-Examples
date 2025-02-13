@@ -22,7 +22,7 @@ jobs:
       - name: Greet first
         run: echo "hello ${{ github.event.inputs.name }}"
       - name: Say their age
-        run: echo "Yes ${{ github.event.inputs.name }} I know you are ${{ github.event.inputs.name }}"
+        run: echo "Yes ${{ github.event.inputs.name }} I know you are ${{ github.event.inputs.age }}"
       - name: Say what's in the file
         run: |
           echo "${{ github.event.inputs.data }}" | base64 --decode > decoded_content.txt
