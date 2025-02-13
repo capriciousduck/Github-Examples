@@ -18,7 +18,7 @@ jobs:
           echo "birthday=April 13th 1997" >> $GITHUB_ENV
           echo "presentage=27" >> $GITHUB_ENV
 
-      - name: lscpu output
+      - name: date output
         id: date
         run: |
           date > date_output.txt
@@ -29,4 +29,4 @@ jobs:
           echo "Birthday: ${{ env.birthday }}"
           echo "Present age: ${{ env.presentage }}"
           echo "date output:"
-          echo "${{ steps.lscpu.outputs.date_output }}"
+          echo "${{ steps.date.outputs.date_output }}"
