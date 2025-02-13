@@ -19,14 +19,14 @@ jobs:
           echo "presentage=27" >> $GITHUB_ENV
 
       - name: lscpu output
-        id: lscpu
+        id: date
         run: |
-          lscpu > lscpu_output.txt
-          echo "lscpu_output=$(cat lscpu_output.txt)" >> $GITHUB_OUTPUT
+          date > date_output.txt
+          echo "date_output=$(cat date_output.txt)" >> $GITHUB_OUTPUT
         
       - name: Cat out values
         run: |
           echo "Birthday: ${{ env.birthday }}"
           echo "Present age: ${{ env.presentage }}"
-          echo "lscpu output:"
-          echo "${{ steps.lscpu.outputs.lscpu_output }}"
+          echo "date output:"
+          echo "${{ steps.lscpu.outputs.date_output }}"
