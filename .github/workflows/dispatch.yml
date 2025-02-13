@@ -1,0 +1,36 @@
+name: dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: name of the person to greet
+        required: true
+        type: string
+      age:
+        description: age of the person
+        required: true
+        type: integer
+      data:
+        description: base64 content
+        required: false
+        type: string
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet first
+        run: echo "hello ${{ github.event.inputs.name }}"
+      - name: Say their age
+        run: echo "Yes ${{ github.event.inputs.name }} I know you are ${{ github.event.inputs.name }}"
+      - name: Say what's in the file
+        run: |
+          echo "${{ github.event.inputs.data }}" | base64 --decode > decoded_content.txt
+          echo "This is the content of file:"
+          echo ""
+          cat ./decoded_content.txt
+        
+
+
+
+
