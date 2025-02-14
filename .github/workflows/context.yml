@@ -1,0 +1,13 @@
+name: Context
+
+on: ['push']
+
+jobs:
+  context-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echoing Actor
+        env:
+          ACTOR: ${{ github.actor }}
+        run: |
+          echo "Actor: $ACTOR"
